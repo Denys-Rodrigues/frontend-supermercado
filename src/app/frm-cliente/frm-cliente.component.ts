@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { Cliente } from '../models/cliente';
 
 @Component({
   selector: 'test-frm-cliente',
@@ -10,14 +11,18 @@ export class FrmClienteComponent implements OnInit {
 
   constructor(private route: Router) { }
 
+  cliente: Cliente = new Cliente;
 
-  voltarParaLista() {
-
-    this.route.navigate(['/clientes']);
-
-  }
 
   ngOnInit(): void {
+  }
+
+  OnSubmit() {
+    console.log(this.cliente)
+  }
+
+  voltarParaLista() {
+    this.route.navigate(["/clientes"]);
   }
 
 }
