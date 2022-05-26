@@ -15,60 +15,62 @@
     <form class="form-horizontal">
         <fieldset>
             <div class="panel panel-primary">
-                <div class="panel-heading">Cadastro de Cliente</div>
+                <div class="panel-heading"></div>
 
                 <div class="panel-body">
                     <div class="form-group">
                         <div class="form-group">
                             <div class="col-md-4 control-label">
-                                <img id="logo" width="50" height="50"
-                                    src="https://cdn-icons-png.flaticon.com/512/753/753210.png" />
+                                <img id="logo" width="80" height="80"
+                                    src="https://www.gransrio.com.br/cliente/imagens/cliente.png" 
+                                />
                             </div>
                             <div class="col-md-4 control-label">
                                 <h1>Cadastro de Cliente</h1>
                             </div>
                         </div>
-                        <div class="col-md-11 control-label">
-                            <p class="help-block">Campo Obrigatório </p>
-                        </div>
                     </div>
 
-                    <!-- Text input-->
+                    <!-- Form contendo Nome e CPF -->
                     <div class="form-group">
-                        <label class="col-md-2 control-label" for="Nome">Nome</label>
-                        <div class="col-md-8">
+                        <!-- Nome -->
+                        <label class="col-md-2 control-label">Nome</label>
+                        <div class="col-md-5">
                             <input id="Nome" name="Nome" placeholder="" class="form-control input-md" required=""
-                                type="text" [(ngModel)]="cliente.nome">
+                                type="text" 
+                                [(ngModel)]="cliente.nome">
                         </div>
+
+                        <!-- CPF -->
+                        <label class="col-md-1 control-label">CPF</label>
+                        <div class="col-md-2">
+                            <input id="cpf" name="cpf" placeholder="000.000.000-00" class="form-control input-md" required="" 
+                            type="text" pattern="[0-9]+$" 
+                            [(ngModel)]="cliente.documento">
+                        </div>
+
                     </div>
 
                     <!-- Text input-->
                     <div class="form-group">
-                        <label class="col-md-2 control-label" for="Nome">Nascimento</label>
+
+                        <label class="col-md-2 control-label">Nascimento</label>
                         <div class="col-md-2">
-                            <input id="dtnasc" name="dtnasc" placeholder="DD/MM/AAAA" class="form-control input-md"
-                                required="" type="text" maxlength="10" OnKeyPress="formatar('##/##/####', this)"
-                                [(ngModel)]="cliente.dataNascimento">
+                            <input id="dtnasc" name="dtnasc" placeholder="DD/MM/AAAA" class="form-control input-md" required="" type="text"
+                            [(ngModel)]="cliente.dataNascimento">
                         </div>
 
-
-
-                        <label class="col-md-1 control-label">Telefone</label>
+                        <label class="col-md-2 control-label">Telefone</label>
                         <div class="col-md-2">
                             <div class="input-group">
                                 <span class="input-group-addon"><i class="glyphicon glyphicon-earphone"></i></span>
-                                <input id="prependedtext" name="prependedtext" class="form-control"
+                                <input id="telefone" name="telefone" class="form-control"
                                     placeholder="XX XXXXX-XXXX" required="" type="text" maxlength="13"
                                     [(ngModel)]="cliente.telefone">
                             </div>
                         </div>
 
-                        <label class="col-md-1 control-label" for="Nome">CPF</label>
-                        <div class="col-md-2">
-                            <input id="cpf" name="cpf" placeholder="Apenas números" class="form-control input-md"
-                                required="" type="text" maxlength="11" pattern="[0-9]+$"
-                                [(ngModel)]="cliente.documento">
-                        </div>
+
 
                     </div>
 
@@ -80,7 +82,7 @@
                             <div class="input-group">
                                 <span class="input-group-addon"><i class="glyphicon glyphicon-envelope"></i></span>
                                 <input id="prependedtext" name="prependedtext" class="form-control"
-                                    placeholder="email@email.com" required="" type="text"
+                                    required="" type="text"
                                     pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$"
                                     [(ngModel)]="cliente.email">
                             </div>
