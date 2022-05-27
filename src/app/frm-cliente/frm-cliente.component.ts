@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { Cliente } from '../models/cliente';
+import { ClientesService } from '../services/clientes.service';
 
 @Component({
   selector: 'test-frm-cliente',
@@ -9,7 +10,7 @@ import { Cliente } from '../models/cliente';
 })
 export class FrmClienteComponent implements OnInit {
 
-  constructor(private route: Router) { }
+  constructor(private route: Router, private clienteService : ClientesService) { }
 
   cliente: Cliente = new Cliente;
 
@@ -18,7 +19,11 @@ export class FrmClienteComponent implements OnInit {
   }
 
   OnSubmit() {
-    console.log(this.cliente)
+    this.clienteService.Adicionar(this.cliente).subscribe((data) => {
+      if (data > 0) {
+        console.log("cliente cadastrado com sucesso!");
+      }
+    });
   }
 
   voltarParaLista() {

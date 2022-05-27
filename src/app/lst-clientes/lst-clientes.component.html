@@ -1,6 +1,10 @@
+<h4>Clientes</h4>
+<br>
+
 <br />
 <br />
-<table class="table table-sm table-dark">
+
+<table class="table table-striped">
     <thead>
         <tr>
             <th scope="col">Id</th>
@@ -19,23 +23,24 @@
 
         </tr>
     </thead>
+    
     <tbody>
-        <tr *ngFor="let Cliente of Cliente">
-            <th scope="row">{{Cliente.id}}</th>
-            <th scope="row">{{Cliente.nome}}</th>
-            <th scope="row">{{Cliente.telefone}}</th>
-            <th scope="row">{{Cliente.email}}</th>
-            <th scope="row">{{Cliente.documento}}</th>
-            <th scope="row">{{Cliente.dataNascimento}}</th>
-            <th scope="row">{{Cliente.logradouro}}</th>
-            <th scope="row">{{Cliente.numero}}</th>
-            <th scope="row">{{Cliente.bairro}}</th>
-            <th scope="row">{{Cliente.cep}}</th>
-            <th scope="row">{{Cliente.cidade}}</th>
-            <th scope="row">{{Cliente.complemento}}</th>
-            <th scope="row">{{Cliente.uf}}</th>
+        <tr *ngFor="let cliente of clientes">
+            <td scope="row">{{cliente.id}}</td>
+            <td scope="row">{{cliente.nome}}</td>
+            <td scope="row">{{cliente.telefone}}</td>
+            <td scope="row">{{cliente.email}}</td>
+            <td scope="row">{{cliente.documento}}</td>
+            <td scope="row">{{cliente.dataNascimento | date: 'dd/MM/yyyy'}}</td>
+            <td scope="row">{{cliente.endereco.logradouro}}</td>
+            <td scope="row">{{cliente.endereco.numero}}</td>
+            <td scope="row">{{cliente.endereco.bairro}}</td>
+            <td scope="row">{{cliente.endereco.cep}}</td>
+            <td scope="row">{{cliente.endereco.cidade}}</td>
+            <td scope="row">{{cliente.endereco.complemento}}</td>
+            <td scope="row">{{cliente.endereco.uf}}</td>
         </tr>
-
     </tbody>
 </table>
+
 <button class="btn btn-success" (click)="cadastrarCliente()">Novo Cliente</button>
